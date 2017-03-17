@@ -1,0 +1,5 @@
+longevo_core:
+    resource: "@LongevoCoreBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
