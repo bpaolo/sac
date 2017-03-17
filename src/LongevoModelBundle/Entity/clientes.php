@@ -25,6 +25,7 @@ class clientes
      * @var string
      *
      * @ORM\Column(name="nome", type="string", length=50)
+     * @Assert\NotBlank
      */
     private $nome;
 
@@ -32,6 +33,7 @@ class clientes
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=50)
+     * @Assert\NotBlank
      */
     private $email;
 
@@ -39,7 +41,7 @@ class clientes
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -62,7 +64,7 @@ class clientes
     /**
      * Get nome
      *
-     * @return string 
+     * @return string
      */
     public function getNome()
     {
@@ -85,7 +87,7 @@ class clientes
     /**
      * Get email
      *
-     * @return string 
+     * @return string
      */
     public function getEmail()
     {

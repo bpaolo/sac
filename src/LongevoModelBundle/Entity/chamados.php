@@ -32,6 +32,7 @@ class chamados
      * @var string
      *
      * @ORM\Column(name="observacao", type="text")
+     * @Assert\NotBlank
      */
     private $observacao;
 
@@ -46,6 +47,7 @@ class chamados
      * @var int
      *
      * @ORM\Column(name="pedido_cliente_id", type="integer")
+     * @Assert\NotBlank
      */
     private $pedidoClienteId;
 
@@ -53,7 +55,7 @@ class chamados
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -76,7 +78,7 @@ class chamados
     /**
      * Get titulo
      *
-     * @return string 
+     * @return string
      */
     public function getTitulo()
     {
@@ -99,7 +101,7 @@ class chamados
     /**
      * Get observacao
      *
-     * @return string 
+     * @return string
      */
     public function getObservacao()
     {
@@ -122,7 +124,7 @@ class chamados
     /**
      * Get pedidoId
      *
-     * @return integer 
+     * @return integer
      */
     public function getPedidoId()
     {
@@ -145,7 +147,7 @@ class chamados
     /**
      * Get pedidoClienteId
      *
-     * @return integer 
+     * @return integer
      */
     public function getPedidoClienteId()
     {

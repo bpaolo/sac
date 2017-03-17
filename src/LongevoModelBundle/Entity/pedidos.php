@@ -3,7 +3,7 @@
 namespace LongevoModelBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * pedidos
  *
@@ -25,6 +25,7 @@ class pedidos
      * @var int
      *
      * @ORM\Column(name="numero", type="integer")
+     * @Assert\NotBlank
      */
     private $numero;
 
@@ -32,6 +33,7 @@ class pedidos
      * @var int
      *
      * @ORM\Column(name="cliente_id", type="integer")
+     * @Assert\NotBlank
      */
     private $clienteId;
 
@@ -39,7 +41,7 @@ class pedidos
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
     public function getId()
     {
@@ -62,7 +64,7 @@ class pedidos
     /**
      * Get numero
      *
-     * @return integer 
+     * @return integer
      */
     public function getNumero()
     {
@@ -85,7 +87,7 @@ class pedidos
     /**
      * Get clienteId
      *
-     * @return integer 
+     * @return integer
      */
     public function getClienteId()
     {
