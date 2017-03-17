@@ -1,3 +1,8 @@
+longevo_model:
+    resource: "@LongevoModelBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 longevo_core:
     resource: "@LongevoCoreBundle/Controller/"
     type:     annotation
