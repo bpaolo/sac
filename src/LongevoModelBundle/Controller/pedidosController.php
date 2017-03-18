@@ -5,7 +5,8 @@ namespace LongevoModelBundle\Controller;
 use LongevoModelBundle\Entity\pedidos;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Pedido controller.
@@ -39,7 +40,7 @@ class pedidosController extends Controller
      */
     public function newAction(Request $request)
     {
-        $pedido = new Pedido();
+        $pedido = new Pedidos();
         $form = $this->createForm('LongevoModelBundle\Form\pedidosType', $pedido);
         $form->handleRequest($request);
 

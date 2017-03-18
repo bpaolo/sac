@@ -39,7 +39,7 @@ class clientesController extends Controller
      */
     public function newAction(Request $request)
     {
-        $cliente = new Cliente();
+        $cliente = new Clientes();
         $form = $this->createForm('LongevoModelBundle\Form\clientesType', $cliente);
         $form->handleRequest($request);
 

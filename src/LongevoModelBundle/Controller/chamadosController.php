@@ -39,7 +39,7 @@ class chamadosController extends Controller
      */
     public function newAction(Request $request)
     {
-        $chamado = new Chamado();
+        $chamado = new Chamados();
         $form = $this->createForm('LongevoModelBundle\Form\chamadosType', $chamado);
         $form->handleRequest($request);
 
