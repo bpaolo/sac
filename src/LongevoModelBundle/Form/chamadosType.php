@@ -13,9 +13,9 @@ class chamadosType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('titulo')->add('observacao')->add('pedidoId')->add('pedidoClienteId');
+        $builder->add('titulo')->add('observacao')->add('pedidoId');
     }
-    
+
     /**
      * {@inheritdoc}
      */

@@ -23,9 +23,9 @@ class pedidos
     private $id;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="numero", type="integer")
+     * @ORM\Column(name="numero", type="string")
      * @Assert\NotBlank
      */
     private $numero;
@@ -145,6 +145,6 @@ class pedidos
      */
     public function __toString()
     {
-        return $this->getNome();
+        return $this->getNumero();
     }
 }

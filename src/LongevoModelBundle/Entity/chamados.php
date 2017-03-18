@@ -40,7 +40,7 @@ class chamados
     /**
      * @var Pedidos
      *
-     * @ORM\ManyToOne(targetEntity="Pedidos", inversedBy="chamados")
+     * @ORM\ManyToOne(targetEntity="pedidos", inversedBy="chamados")
      * @ORM\JoinColumn(name="pedido_id", referencedColumnName="id", nullable=false)
      * @Assert\NotBlank
      */
