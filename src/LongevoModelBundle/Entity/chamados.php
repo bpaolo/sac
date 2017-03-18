@@ -38,19 +38,13 @@ class chamados
     private $observacao;
 
     /**
-     * @var int
+     * @var Pedidos
      *
-     * @ORM\Column(name="pedido_id", type="integer")
-     */
-    private $pedidoId;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="pedido_cliente_id", type="integer")
+     * @ORM\ManyToOne(targetEntity="Pedidos", inversedBy="chamados")
+     * @ORM\JoinColumn(name="pedido_id", referencedColumnName="id", nullable=false)
      * @Assert\NotBlank
      */
-    private $pedidoClienteId;
+    private $pedidoId;
 
 
     /**
@@ -132,26 +126,4 @@ class chamados
         return $this->pedidoId;
     }
 
-    /**
-     * Set pedidoClienteId
-     *
-     * @param integer $pedidoClienteId
-     * @return chamados
-     */
-    public function setPedidoClienteId($pedidoClienteId)
-    {
-        $this->pedidoClienteId = $pedidoClienteId;
-
-        return $this;
-    }
-
-    /**
-     * Get pedidoClienteId
-     *
-     * @return integer
-     */
-    public function getPedidoClienteId()
-    {
-        return $this->pedidoClienteId;
-    }
 }

@@ -4,7 +4,7 @@ namespace LongevoModelBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * clientes
  *
@@ -37,6 +37,18 @@ class clientes
      * @Assert\NotBlank
      */
     private $email;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="pedidos", mappedBy="clientes", cascade={"remove"})
+     */
+    private $pedido;
+
+    public function __construct()
+    {
+            $this->pedidos = new ArrayCollection();
+    }
 
 
     /**
@@ -93,5 +105,46 @@ class clientes
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Add pedido
+     *
+     * @param \LongevoModelBundle\Entity\Pedidos $pedido
+     * @return clientes
+     */
+    public function addPedido(\LongevoModelBundle\Entity\Pedidos $pedido)
+    {
+        $this->pedido[] = $pedido;
+
+        return $this;
+    }
+
+    /**
+     * Remove pedido
+     *
+     * @param \LongevoModelBundle\Entity\Pedidos $pedido
+     */
+    public function removePedido(\LongevoModelBundle\Entity\Pedidos $pedido)
+    {
+        $this->pedido->removeElement($pedido);
+    }
+
+    /**
+     * Get pedido
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPedido()
+    {
+        return $this->pedido;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
     }
 }

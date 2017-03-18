@@ -4,6 +4,7 @@ namespace LongevoModelBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * pedidos
  *
@@ -30,13 +31,25 @@ class pedidos
     private $numero;
 
     /**
-     * @var int
+     * @var Clientes
      *
-     * @ORM\Column(name="cliente_id", type="integer")
+     * @ORM\ManyToOne(targetEntity="clientes", inversedBy="pedidos")
+     * @ORM\JoinColumn(name="cliente_id", referencedColumnName="id", nullable=false)
      * @Assert\NotBlank
      */
     private $clienteId;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="chamados", mappedBy="pedidos", cascade={"remove"})
+     */
+    private $chamado;
+
+    public function __construct()
+    {
+            $this->chamados = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -92,5 +105,46 @@ class pedidos
     public function getClienteId()
     {
         return $this->clienteId;
+    }
+
+    /**
+     * Add chamado
+     *
+     * @param \LongevoModelBundle\Entity\Chamados $chamado
+     * @return pedidos
+     */
+    public function addChamado(\LongevoModelBundle\Entity\Chamados $chamado)
+    {
+        $this->chamado[] = $chamado;
+
+        return $this;
+    }
+
+    /**
+     * Remove chamado
+     *
+     * @param \LongevoModelBundle\Entity\Chamados $chamado
+     */
+    public function removeChamado(\LongevoModelBundle\Entity\Chamados $chamado)
+    {
+        $this->chamado->removeElement($chamado);
+    }
+
+    /**
+     * Get chamado
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getChamado()
+    {
+        return $this->chamado;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
     }
 }
