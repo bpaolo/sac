@@ -145,6 +145,6 @@ class pedidos
      */
     public function __toString()
     {
-        return $this->getName();
+        return $this->getNome();
     }
 }
