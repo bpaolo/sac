@@ -12,4 +12,14 @@ use Doctrine\ORM\EntityRepository;
  */
 class pedidosRepository extends EntityRepository
 {
+
+private function getQueryBuilder()
+    {
+        $entityManager = $this->getEntityManager();
+
+        $queryBuilder = $entityManager->getRepository('LongevoModelBundle:pedidos')
+        ->createQueryBuilder('p');
+
+        return $queryBuilder;
+    }
 }
